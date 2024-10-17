@@ -1,3 +1,8 @@
 // File io
-mod file_io;
-pub use file_io::read_input_file;
+pub mod file_io;
+
+// Print
+pub mod console;
+
+// Vec utils
+pub mod vector_utils;

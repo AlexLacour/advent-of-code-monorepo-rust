@@ -15,3 +15,20 @@ pub fn read_input_file(script_path: &Path) -> String {
     // return
     input_content
 }
+
+
+pub fn parse_input_string<T: std::str::FromStr>(input_content: String, pat: &str) -> Vec<Vec<T>> where <T as std::str::FromStr>::Err: std::fmt::Debug {
+    let split_by_lines: Vec<String> = input_content.split("\n").map(|line| line.to_string()).collect();
+    
+    let split_by_columns: Vec<Vec<&str>> = split_by_lines.iter().map(|line| line.split(pat).collect()).collect();
+
+    // Type parsing
+    let mut parsed_vector: Vec<Vec<T>> = Vec::new();
+    for line_of_char in split_by_columns.iter() {
+        let new_line: Vec<T> = line_of_char.iter().map(|x| x.to_string().parse::<T>().expect("Failed to parse the data")).collect();
+        parsed_vector.push(new_line);
+    }
+
+    // return
+    parsed_vector
+}
