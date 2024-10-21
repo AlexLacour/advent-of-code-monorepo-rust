@@ -6,3 +6,4 @@ pub mod console;
 
 // Vec utils
 pub mod vector_utils;
+pub mod spatial;

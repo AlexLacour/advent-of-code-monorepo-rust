@@ -47,8 +47,8 @@ fn main() {
     let input_mat = file_io::parse_input_string::<i32>(raw_input_content, "\t");
 
     let checksum = get_minmax_diff_checksum(&input_mat);
-    console::display(checksum, String::from("Part 1"));
+    console::display(checksum, "Part 1");
 
     let checksum = get_div_checksum(&input_mat);
-    console::display(checksum, String::from("Part 2"));
+    console::display(checksum, "Part 2");
 }

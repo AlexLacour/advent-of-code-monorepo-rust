@@ -27,9 +27,9 @@ fn main() {
 
     // Part 1
     let sum = get_sum(&input_integers, false);
-    console::display(sum, String::from("Part 1"));
+    console::display(sum, "Part 1");
 
     // Part 2
     let sum = get_sum(&input_integers, true);
-    console::display(sum, String::from("Part 2"))
+    console::display(sum, "Part 2");
 }
