@@ -15,6 +15,7 @@ fn is_passphrase_valid(passphrase: &Vec<String>, anagram_condition: bool) -> boo
     passphrase_set.len() == local_passphrase.len()
 }
 
+
 fn main() {
     let input_passphrases_raw = file_io::read_input_file(Path::new(file!()));
     let input_passphrases = file_io::parse_input_string::<String>(input_passphrases_raw, " ");
