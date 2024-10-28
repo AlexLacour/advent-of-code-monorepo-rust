@@ -1,11 +1,16 @@
 // Generic CS Algorithms
 
+/// Finds the first occurence of a cycle and its period
+///
+/// Returns :
+/// lambda : the period
+/// mu : the first occurence index
+/// Floyd cycle detection algorithm
+/// see https://en.wikipedia.org/wiki/Cycle_detection#Floyd.27s_Tortoise_and_Hare
 pub fn floyd_cycle_finding<T: std::cmp::PartialEq + Clone>(
     root: &T,
     next_fn: fn(&T) -> T,
 ) -> (i32, i32) {
-    // Floyd cycle detection algorithm
-    // see https://en.wikipedia.org/wiki/Cycle_detection#Floyd.27s_Tortoise_and_Hare
     let mut tortoise = next_fn(root);
     let mut hare = next_fn(&next_fn(root));
 

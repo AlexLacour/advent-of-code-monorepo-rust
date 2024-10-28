@@ -26,7 +26,7 @@ pub fn read_input_file(script_path: &Path) -> String {
     input_content
 }
 
-pub fn parse_input_string<T: std::str::FromStr>(input_content: String, pat: &str) -> Vec<Vec<T>>
+pub fn parse_input_string<T: std::str::FromStr>(input_content: String, pat: Option<&str>) -> Vec<Vec<T>>
 where
     <T as std::str::FromStr>::Err: std::fmt::Debug,
 {
@@ -35,10 +35,19 @@ where
         .map(|line| line.to_string())
         .collect();
 
-    let split_by_columns: Vec<Vec<&str>> = split_by_lines
+    let split_by_columns: Vec<Vec<&str>>;
+    if pat != None {
+        split_by_columns = split_by_lines
         .iter()
-        .map(|line| line.split(pat).collect())
+        .map(|line| line.split(pat.unwrap()).collect())
         .collect();
+    }
+    else {
+        split_by_columns = split_by_lines
+        .iter()
+        .map(|line| vec![line.as_str()])
+        .collect();
+    }
 
     // Type parsing
     let mut parsed_vector: Vec<Vec<T>> = Vec::new();
