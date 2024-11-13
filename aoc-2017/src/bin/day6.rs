@@ -23,7 +23,7 @@ fn run_cycle(memory: &Vec<i32>) -> Vec<i32> {
 
 fn main() {
     let input_blocks = file_io::read_input_file(Path::new(file!()));
-    let input_blocks: Vec<Vec<i32>> = file_io::parse_input_string(input_blocks, "\t");
+    let input_blocks: Vec<Vec<i32>> = file_io::parse_input_string(input_blocks, Some("\t"));
     let memory: Vec<i32> = input_blocks.clone().get(0).unwrap().clone();
 
     let (lambda, mu) = algorithms::floyd_cycle_finding(&memory, run_cycle);

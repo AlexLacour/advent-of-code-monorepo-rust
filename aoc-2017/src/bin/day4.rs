@@ -18,7 +18,7 @@ fn is_passphrase_valid(passphrase: &Vec<String>, anagram_condition: bool) -> boo
 
 fn main() {
     let input_passphrases_raw = file_io::read_input_file(Path::new(file!()));
-    let input_passphrases = file_io::parse_input_string::<String>(input_passphrases_raw, " ");
+    let input_passphrases = file_io::parse_input_string::<String>(input_passphrases_raw, Some(" "));
 
     let mut n_valid = 0;
     let mut n_valid_with_anagram = 0;

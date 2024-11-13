@@ -30,7 +30,7 @@ fn run_maze(jump_maze: &mut Vec<i32>, strange: bool) -> i32 {
 
 fn main() {
     let input_jumps = file_io::read_input_file(Path::new(file!()));
-    let input_jumps: Vec<Vec<i32>> = file_io::parse_input_string(input_jumps, " ");
+    let input_jumps: Vec<Vec<i32>> = file_io::parse_input_string(input_jumps, Some(" "));
 
     let jump_maze: Vec<i32> = input_jumps.iter().map(|x| x[0]).collect();
 

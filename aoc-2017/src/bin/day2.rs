@@ -44,7 +44,7 @@ fn get_div_checksum(mat: &Vec<Vec<i32>>) -> i32 {
 
 fn main() {
     let raw_input_content = file_io::read_input_file(Path::new(file!()));
-    let input_mat = file_io::parse_input_string::<i32>(raw_input_content, "\t");
+    let input_mat = file_io::parse_input_string::<i32>(raw_input_content, Some("\t"));
 
     let checksum = get_minmax_diff_checksum(&input_mat);
     console::display(checksum, "Part 1");
