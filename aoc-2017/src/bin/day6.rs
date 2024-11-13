@@ -1,6 +1,6 @@
 use aoc_utils::algorithms;
 use aoc_utils::{console, file_io};
-use std::{collections::HashSet, path::Path};
+use std::path::Path;
 
 fn run_cycle(memory: &Vec<i32>) -> Vec<i32> {
     let max_value = memory.iter().max().expect("The memory is empty").to_owned();
